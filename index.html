@@ -1,48 +1,64 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Privileged app</title>
-        <meta name="description" content="A privileged app stub">
+<head>
+<style>
+.btn {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.success {background-color: green;} /* Green */
+.success:hover {background-color:green;} 
 
-        <!--
-          viewport allows you to control how mobile browsers will render your content.
-          width=device-width tells mobile browsers to render your content across the
-          full width of the screen, without being zoomed out (by default it would render
-          it at a desktop width, then shrink it to fit.)
-          Read more about it here:
-          https://developer.mozilla.org/Mozilla/Mobile/Viewport_meta_tag
-        -->
-        <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="css/app.css">
+.danger {background-color: red;} /* Red */ 
+.danger:hover {background: red;} 
+.rectangle {
+  height: 50px;
+  width: 150px;
+  background-color: #555;
+  margin-left: 50px;
+}
+div {
+  border: 2px solid;
+  padding: 20px; 
+  width: 300px;
+  overflow: auto;
+}
+round {
+  border: 2px solid ;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
 
-        <!--
-        Inline JavaScript code is not allowed for privileged and certified apps,
-        due to Content Security Policy restrictions.
-        You can read more about it here: https://developer.mozilla.org/Apps/CSP
-        Plus keeping your JavaScript separated from your HTML is always a good practice!
 
-        We're also using the 'defer' attribute. This allows us to tell the browser that
-        it should not wait for this file to load before continuing to load the rest of
-        resources in the page. Then, once everything has been loaded, it will parse and
-        execute the deferred files.
-        Read about defer: https://developer.mozilla.org/Web/HTML/Element/script#attr-defer
-        -->
-        <script type="text/javascript" src="js/app.js" defer></script>
+<div>
+<div id="redBox" class="rectangle" style="background-color:red"></div> <br><br>
+<div id="greenBox" class="rectangle" style="background-color:green"></div> <br><br>
+<br>
 
-        <!--
-        The following two lines are for loading the localisations library
-        and the localisation data-so people can use the app in their
-        own language (as long as you provide translations).
-        -->
-        <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
-        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
-    </head>
-    <body>
-        <section>
-            <h1 data-l10n-id="app_title">Privileged empty app</h1>
-            <p data-l10n-id="app_description">This app is empty. Fill it with your own stuff!</p>
-            <p id="message"></p>
-        </section>
-    </body>
-</html>
+<button type="button" id="green" class="success" >Show</button>
+<button type="button" id="red" class="danger"> Show</button>
+
+<script type="text/javascript"> 
+    document.getElementById("red").onclick = function() { 
+
+        document.getElementById("greenBox").style.display = "none"; 
+
+        document.getElementById("redBox").style.display = "block"; 
+    } 
+
+    document.getElementById("green").onclick = function() { 
+
+        document.getElementById("redBox").style.display = "none"; 
+        document.getElementById("greenBox").style.display = "block";
+
+    } 
+</script>
+
+</div>
+</body>
+</html> 
